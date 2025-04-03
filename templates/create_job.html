@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Job</title>
+</head>
+<body>
+    <h1>Create Job</h1>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=30) }}
+        </p>
+
+        <p>
+            {{ form.company.label }}<br>
+            {{ form.company(size=30) }}
+        </p>
+
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=30) }}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>

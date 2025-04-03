@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs</title>
+    <style>
+        table { margin: auto; width: 80%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background-color: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Jobs</h1>
+
+    <!-- Display jobs -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td><a href="{{ url_for('job_details', job_id=job.id) }}">{{ job.title }}</a></td>
+                <td>
+                    {% if job.company_data %}
+                    <a href="{{ url_for('company_details', company_id=job.company_data.id) }}">
+                        {{ job.company_data.name }}
+                    </a>
+                    {% else %}
+                    {{ job.company }}
+                    {% endif %}
+                </td>
+                <td>{{ job.location }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

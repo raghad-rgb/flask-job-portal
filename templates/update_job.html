@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Update Job</title></head>
+<body>
+  <h1>Update Job</h1>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>{{ form.title.label }}<br>{{ form.title(size=30) }}</p>
+    <p>{{ form.company.label }}<br>{{ form.company(size=30) }}</p>
+    <p>{{ form.location.label }}<br>{{ form.location(size=30) }}</p>
+    {{ form.submit(value="Update Job") }}
+  </form>
+</body>
+</html>
